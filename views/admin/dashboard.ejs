@@ -1,0 +1,55 @@
+<%- include('../partials/header') %>
+
+<div class="container mx-auto px-4 py-8">
+    <div class="flex flex-wrap -mx-4">
+        <!-- Sidebar (could be separate partial) -->
+        <div class="w-full md:w-1/4 px-4 mb-8">
+            <div class="bg-white rounded-lg shadow p-6">
+                <h3 class="text-xl font-bold mb-4">Admin Menu</h3>
+                <ul class="space-y-2">
+                    <li><a href="/admin/dashboard" class="block text-teal-600 font-bold">Dashboard</a></li>
+                    <li><a href="/admin/members" class="block text-gray-600 hover:text-teal-600">Manage Members</a></li>
+                    <li><a href="#" class="block text-gray-600 hover:text-teal-600">Manage Events (Coming Soon)</a></li>
+                    <li><a href="#" class="block text-gray-600 hover:text-teal-600">Manage Blog (Coming Soon)</a></li>
+                    <li><a href="#" class="block text-gray-600 hover:text-teal-600">Manage Resources (Coming Soon)</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="w-full md:w-3/4 px-4">
+            <h1 class="text-3xl font-bold text-gray-800 mb-6">Dashboard</h1>
+            
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white rounded-lg shadow p-6 border-l-4 border-teal-500">
+                    <div class="text-gray-500">Total Members</div>
+                    <div class="text-3xl font-bold"><%= memberCount %></div>
+                </div>
+                <div class="bg-white rounded-lg shadow p-6 border-l-4 border-yellow-500">
+                    <div class="text-gray-500">Pending Approvals</div>
+                    <div class="text-3xl font-bold"><%= pendingCount %></div>
+                </div>
+                <div class="bg-white rounded-lg shadow p-6 border-l-4 border-blue-500">
+                    <div class="text-gray-500">Total Events</div>
+                    <div class="text-3xl font-bold"><%= eventCount %></div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <h3 class="text-xl font-bold mb-4">Quick Actions</h3>
+                <div class="flex space-x-4">
+                    <a href="/admin/members" class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded">
+                        Review New Members
+                    </a>
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Create New Event
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>

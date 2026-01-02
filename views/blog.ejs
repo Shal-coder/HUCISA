@@ -1,0 +1,34 @@
+<%- include('partials/header') %>
+
+<div class="container mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold text-gray-800 mb-8 text-center">Blog & News</h1>
+
+    <% if(posts.length > 0) { %>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <% posts.forEach(function(post) { %>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col md:flex-row">
+                    <% if(post.image_url) { %>
+                        <div class="md:w-1/3 h-48 md:h-auto">
+                            <img src="<%= post.image_url %>" alt="<%= post.title %>" class="w-full h-full object-cover">
+                        </div>
+                    <% } %>
+                    <div class="p-6 w-full <%= post.image_url ? 'md:w-2/3' : '' %>">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm font-bold text-teal-600 uppercase"><%= post.category %></span>
+                            <span class="text-sm text-gray-500"><%= new Date(post.created_at).toLocaleDateString() %></span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2"><%= post.title %></h3>
+                        <p class="text-gray-600 mb-4"><%= post.content.substring(0, 150) %>...</p>
+                        <!-- <a href="/blog/<%= post.id %>" class="text-teal-600 font-bold hover:underline">Read More</a> -->
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    <% } else { %>
+        <div class="text-center py-12 bg-white rounded shadow">
+            <p class="text-xl text-gray-600">No blog posts available yet.</p>
+        </div>
+    <% } %>
+</div>
+
+<%- include('partials/footer') %>

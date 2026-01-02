@@ -1,0 +1,70 @@
+<%- include('partials/header') %>
+
+<div class="container mx-auto px-4 py-12">
+    <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-red-600 mb-4"><i class="fas fa-life-ring mr-2"></i> Get Help</h1>
+        <p class="text-xl text-gray-700">You are not alone. We are here to support you.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <!-- Emergency Contacts -->
+        <div class="bg-white rounded-lg shadow-lg p-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Emergency Contacts</h2>
+            <ul class="space-y-4">
+                <li class="flex items-center">
+                    <div class="bg-red-100 p-3 rounded-full mr-4 text-red-600"><i class="fas fa-hospital"></i></div>
+                    <div>
+                        <h4 class="font-bold">University Clinic</h4>
+                        <p class="text-gray-600">025-553-0333 (24/7)</p>
+                    </div>
+                </li>
+                <li class="flex items-center">
+                    <div class="bg-blue-100 p-3 rounded-full mr-4 text-blue-600"><i class="fas fa-user-md"></i></div>
+                    <div>
+                        <h4 class="font-bold">Student Dean of Affairs</h4>
+                        <p class="text-gray-600">025-553-0111</p>
+                    </div>
+                </li>
+                <li class="flex items-center">
+                    <div class="bg-green-100 p-3 rounded-full mr-4 text-green-600"><i class="fas fa-hands-helping"></i></div>
+                    <div>
+                        <h4 class="font-bold">Peer Counseling Support</h4>
+                        <p class="text-gray-600">Visit Office 102, Student Union</p>
+                    </div>
+                </li>
+            </ul>
+            
+            <div class="mt-8 p-4 bg-yellow-50 border-l-4 border-yellow-400">
+                <p class="text-sm text-yellow-700">
+                    <strong>Note:</strong> All conversations with counselors are strictly confidential.
+                </p>
+            </div>
+        </div>
+
+        <!-- Anonymous Message Form -->
+        <div class="bg-white rounded-lg shadow-lg p-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Send an Anonymous Message</h2>
+            <p class="text-gray-600 mb-4">Use this form to ask for help, report an issue, or suggest something. You do not need to provide your name.</p>
+            
+            <form action="/get-help" method="POST">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="subject">Subject</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="subject" name="subject" type="text" placeholder="e.g., I need advice">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="sender_email">Email (Optional - if you want a reply)</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="sender_email" name="sender_email" type="email" placeholder="Leave blank for 100% anonymity">
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="message_body">Message</label>
+                    <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message_body" name="message_body" rows="5" required placeholder="Type your message here..."></textarea>
+                </div>
+                <button class="bg-teal-600 hover:bg-teal-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" type="submit">
+                    Send Securely
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

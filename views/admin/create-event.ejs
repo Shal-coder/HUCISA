@@ -1,0 +1,58 @@
+<%- include('../partials/header') %>
+
+<div class="container mx-auto px-4 py-8">
+    <div class="flex flex-wrap -mx-4">
+        <div class="w-full md:w-1/4 px-4 mb-8">
+            <div class="bg-white rounded-lg shadow p-6">
+                <h3 class="text-xl font-bold mb-4">Admin Menu</h3>
+                <ul class="space-y-2">
+                    <li><a href="/admin/dashboard" class="block text-gray-600 hover:text-teal-600">Dashboard</a></li>
+                    <li><a href="/admin/members" class="block text-gray-600 hover:text-teal-600">Manage Members</a></li>
+                    <li><a href="/admin/events/create" class="block text-teal-600 font-bold">Create Event</a></li>
+                    <li><a href="/admin/posts/create" class="block text-gray-600 hover:text-teal-600">Create Blog Post</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="w-full md:w-3/4 px-4">
+            <h1 class="text-3xl font-bold text-gray-800 mb-6">Create New Event</h1>
+            
+            <div class="bg-white rounded-lg shadow p-8">
+                <form action="/admin/events/create" method="POST" enctype="multipart/form-data">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="title">Event Title</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="title" name="title" type="text" required>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="venue">Venue / Location</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="venue" name="venue" type="text" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="date_time">Date & Time</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="date_time" name="date_time" type="datetime-local" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="description">Description</label>
+                        <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="description" name="description" rows="5" required></textarea>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="image">Event Image (Optional)</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="image" name="image" type="file">
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <button class="bg-teal-600 hover:bg-teal-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                            Publish Event
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>
